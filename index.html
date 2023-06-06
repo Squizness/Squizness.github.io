@@ -1,0 +1,601 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title class="title_frame">Revolt Followers</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>     
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+       <link rel="stylesheet" href="pulsa.css" type="text/css" media="all" />
+       <script src="https://kit.fontawesome.com/71b0927049.js" crossorigin="anonymous"></script>
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <style type="text/css" media="all">
+body{
+  margin: 0;padding:0;
+  animation-name: fade;
+  animation-duration: 1s;
+  background-image: linear-gradient(180deg, #182D5A, #141E40);
+}   
+/* CSS HEADER */
+.loader {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.act-btn{ 
+            background:#1976d2; 
+            display: block; 
+            width: 100%; 
+            text-align: center; 
+            color: white; 
+            font-size: 14px; 
+            font-weight: bold; 
+            border-radius: 10px; 
+            text-decoration: none; 
+            transition: ease all 0.3s; 
+            position: fixed; 
+            padding: 5px; 
+            right: 5%; 
+            bottom:30px; 
+          } 
+      .act-btn:hover{background: goldenrod; 
+        color:white;} 
+
+        .input-form {
+  display: flex;
+  flex-direction: column-reverse;
+  margin: 1.2em 0;
+  
+}
+
+input, label {
+  transition: 0.4s ease;
+}
+
+label {
+  padding-left:15px;
+  transform: translate(4px, -14px) scale(1.02);
+  margin-bottom: 0px;
+  cursor: text;
+  text-align: center;
+  border-radius:10px;
+  background-color: transparent;
+  color: #00F0FF;
+  position: absolute;
+}
+
+.title_frame {
+  background-color: white;
+}
+
+input {
+  font-size: 1.2em;
+  padding: 10px;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  box-shadow: 0.1rem 0.1rem #091023, -0.1rem -0.1rem #1E3B68;
+  background-image: linear-gradient(120deg, #122042, #0A132B);
+  color: #00F0FF;
+}
+
+input::placeholder {
+  opacity: 0;
+}
+
+input:focus, input:not(:placeholder-shown) {
+  border: 1px solid #00F0FF;
+}
+
+
+input:not(:placeholder-shown) ~ label, input:focus ~ label {
+  transform: translate(10px, -35px) scale(0.8);
+  padding-left: 0px;
+  color: #00F0FF;
+}
+.row{text-align: center;
+  background-image: linear-gradient(120deg, #122042, #0A132B);
+  margin-top: -20px;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: bold;
+}
+.box-info{
+  background-image: linear-gradient(120deg, #122042, #0A132B);
+  padding: 10px;
+  border-radius: 10px;
+  color: white;
+  font-size: 12px;
+  margin-top: 10px;
+}
+.box-info h{
+  text-align: center;
+  font-weight: bold;
+}
+.isi-box-produk {
+  box-shadow: 0.1rem 0.1rem #1E3B68, -0.1rem -0.1rem #091023;
+  margin-top:10px;
+  padding:10px 0 10px 10px;
+  border-radius:10px;
+  background-image: linear-gradient(120deg, #122042, #0A132B);
+}
+.isi-box-produk:hover {
+  box-shadow: 0.1rem 0.1rem #1E3B68, -0.1rem -0.1rem #091023;
+  margin-top:10px;
+  padding:10px 0 10px 10px;
+  border-radius:10px;
+  background-image: linear-gradient(130deg, #0A1027, #142245);
+}
+
+.box-produk{
+  box-shadow: 0.1rem 0.1rem #1E3B68, -0.1rem -0.1rem #091023;
+  margin-top:10px;
+  padding: 10px 10px 10px 10px;
+  border-radius:10px;
+  background-image: linear-gradient(130deg, #0A1027, #142245);
+  -webkit-transform: skew(-9deg);
+	-moz-transform: skew(-9deg); 
+	-o-transform: skew(-9deg); 
+	z-index: -1;
+}
+.box-produk img{
+  width:30px;
+  height: auto;
+  float:left;
+  margin-top: 10px;
+  margin-right:10px;
+}
+.box-produk h4{
+  box-shadow: 0.1rem 0.1rem #091023, -0.1rem -0.1rem #1E3B68;
+  background-image: linear-gradient(130deg, #0A1027, #142245);
+  width:100%;
+  padding: 0.4em 0 0.4em 0;
+  border-radius:10px;
+  color: #00F0FF;
+  font-size:15px;
+  text-align: center;
+  
+}
+.box-produk p{
+  width:75%;
+  font-size: 12px;
+  
+  color: #00F0FF;
+  
+  opacity: 0.7;
+}
+.box-produk button{
+  float: right;
+  border:none;
+  background-image: linear-gradient(130deg, #142245, #142245);
+  border: 0.1rem 0.1rem #091023, -0.1rem -0.1rem #091023;
+  font-size: 12px;
+  font-weight: bold;
+  color: #00F0FF;
+  border-radius: 10px;
+  
+  padding: 0.3em;
+  margin-top: -2.5em;
+  margin-right: 0.5em;
+}
+.pilihan-produk{
+  
+  font-size: 15px;
+  font-weight: bold;
+  color: #00F0FF;
+  
+  box-shadow: 0.1rem 0.1rem #1E3B68, -0.1rem -0.1rem #091023;
+  background-image: linear-gradient(130deg, #0A1027, #142245);
+}
+.pilihan-produk button {
+  color: #fff;
+  width: 100%;
+  text-align: center;
+  
+}
+.Pilihdong{
+    box-shadow: 0.1rem 0.1rem #1E3B68, -0.1rem -0.1rem #091023;
+  background-image: linear-gradient(130deg, #0A1027, #142245);
+    color: #00F0FF;
+    width:100%;
+    height: auto;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    text-align: center;
+    z-index: 10;
+    -webkit-transform: skew(-9deg);
+	-moz-transform: skew(-9deg); 
+	-o-transform: skew(-9deg); 
+	z-index: -1;
+}
+.dropdown-menu {
+  box-shadow: 0.1rem 0.1rem #1E3B68, -0.1rem -0.1rem #091023;
+  background-image: linear-gradient(130deg, #0A1027, #142245);
+  width: 95%;
+  height: auto;
+  
+}
+.dropdown-list {
+  
+}
+.tablink{
+    border: none;
+    background-color: transparent;
+    width:100%;
+    padding: 10px;
+    text-align:left;
+}
+
+.tabcontent{
+    animation-name: fade;
+  animation-duration: 3s;
+}
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+@keyframes aniload {
+  from {
+    transform: translateX(50px, 0px)
+  }
+  to {
+    transform: translateX(0px, 0px)
+  }
+}
+
+.judul-tab{
+    border-left: 3px solid #1976d2;
+    padding-left: 5px;
+    font-size:14px;
+    border-radius:5px;
+    margin-top: -35px;
+    background-color:transparent;
+    width:auto;
+}
+.judul-tab img{
+  width:30px;
+  border-radius:40px;
+  margin-right:10px;
+}
+.tanya{
+    float:right;
+    border:none;
+    background-color:red;
+   margin-left:5px;
+   border-radius:50px;
+   width:25px;
+   color:white;
+}
+.modal-concent{
+    background-color:#1976d2;
+}
+.tutup{
+    border:none;
+    background-color:red;
+    color:white;
+    border-radius:10px;
+    font-size:11px;
+}
+.infomu{
+    font-size: 12px;
+}
+.user_number {
+  color: #00F0FF;
+  margin-bottom: 20px;
+  font-size: 1.3em;
+  margin-left: 0.3em;
+}
+.logo_user{
+  padding: 10px 5px;
+}
+
+.boxer {
+  text-decoration: none;
+}
+       </style>  
+    <body>
+          <div class="container">
+<div class="box-info">
+  <center>
+  <h>Cara Melakukan Pembelian & Pembayaran : </h>
+</center>
+  <p>
+    <li>Masukan Nomor Telepon Anda</li>
+    <li>Pilih Nominal Transaksi</li>
+    <li>Kamu akan diarahkan ke menu pembayaran</li>
+</div>
+</div>
+
+    <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+    </div>
+  </div>
+
+  </div>
+  <style>
+    .kontak_user {
+      text-decoration: none;
+      color: black;
+    }
+  </style>
+        <!-- Example single danger button -->
+<div class="container">
+    <div class="Pilihdong" data-bs-toggle="dropdown" aria-expanded="false">Pilih Kategori Sosial Media</div>
+  <ul class="dropdown-menu">
+    <li class="pilihan-produk">
+<button type="button" class="tablink" onclick="openPage('menu-2', this, '#263238')"  id="defaultOpen">Followers Indonesia NonDrop</button></button>
+    </li>
+    <li class="pilihan-produk">
+<button type="button" class="tablink" onclick="openPage('menu-3', this, '#263238')"  id="defaultOpen">XL Data Xtra On</button>
+    </li>
+    <li class="pilihan-produk">
+<button type="button" class="tablink" onclick="openPage('menu-4', this, '#263238')"  id="defaultOpen">Kuota Nonstop</button>
+    </li>
+    <li class="pilihan-produk">
+<button type="button" class="tablink" onclick="openPage('menu-5', this, '#263238')"  id="defaultOpen">Smartfren Evo</button>
+    </li>
+    <li class="pilihan-produk"> 
+<button type="button" class="tablink" onclick="openPage('menu-1', this, '#263238')"  id="defaultOpen">Smartfen Harian</button>
+    </li>
+    <li class="pilihan-produk">
+      <button type="button" class="tablink" onclick="openPage('menu-6', this, '#263238')"  id="defaultOpen">Smartfren Kuota Mingguan</button>
+    </li>
+  </ul>
+</div>
+
+      </div>
+    </div>
+  </div>
+  <!-- PLN PASCABAYAR -->
+  <section id="menu-1" class="tabcontent">
+      <div class="container">
+      <a onclick="kirimData('#')"> 
+       <div class="box-produk">
+ 
+        <h4>Segera Hadir</h4>
+        <button>Gangguan</button>
+       </div>
+      </a>
+    </div>
+    </section>
+
+  <!-- PDAM -->
+  <section id="menu-2" class="tabcontent">
+      <div class="container">
+      <a class="boxer" href="https://revolt.webtoko.net/produk/xl-combo-lite-s-1884431"> 
+       <div class="box-produk">
+        <h4>100 Followers Real Indonesia</h4>
+        <div class="isi-box-produk">
+          <p>Garansi Jika Drop</p> 
+          
+        </div>
+        <button>Rp24.000</button>
+       </div> 
+      </a>
+      <a class="boxer" href="https://revolt.webtoko.net/produk/xl-combo-lite-s-1884431"> 
+       <div class="box-produk">
+        <h4>500 Followers Real Indonesia</h4>
+        <div class="isi-box-produk">
+        <p>Garansi Jika Droo</p>
+        <button>Rp45.000</button>          
+        </div>
+
+       </div>
+      </a>
+      <a onclick="kirimData('https://revolt.webtoko.net/produk/xl-combo-lite-l-1884434')"> 
+       <div class="box-produk">
+ 
+        <h4>1000 Followers Real Indonesia</h4>
+        <p>Garandi Jika Droo</p>
+        <button>Rp80.000</button>
+       </div>
+      </a>
+      <a onclick="kirimData('https://revolt.webtoko.net/produk/xl-combo-lite-xl-1884435')"> 
+       <div class="box-produk">
+ 
+        <h4>1500 Followers Real Indonesia</h4>
+        <p>Garansi Jika Drop</p>
+        <button>Rp140.000</button>
+       </div>
+      </a>
+      <a onclick="kirimData('https://revolt.webtoko.net/produk/xl-combo-lite-xxl-1884437')"> 
+       <div class="box-produk">
+ 
+        <h4>2000 Followers Real Indonesia</h4>
+        <p>Garansi Jika Drop</p>
+        <button>Rp160.000</button>
+       </div>
+      </a>
+      <a onclick="kirimData('https://revolt.webtoko.net/produk/xl-combo-lite-xxxl-1884439')"> 
+       <div class="box-produk">
+ 
+        <h4>3000 Followers Real Indonesia</h4>
+        <p>Garansi Jika Drop</p>
+        <button>Rp200.000</button>
+       </div>
+      </a>
+    </div>
+    </section>
+
+  <!-- XL -->
+  <section id="menu-3" class="tabcontent">
+      <div class="container">
+      <a onclick="kirimData('https://revolt.webtoko.net/produk/smart-unlimited-fup-1gb-7-hari-1881958')"> 
+       <div class="box-produk">
+ 
+        <h4>Smartfren Unlimited FUP 1GB 7 hari</h4>
+        <button>Rp24.750</button>
+       </div>
+      </a>
+      <a onclick="kirimData('https://revolt.webtoko.net/produk/smart-unlimited-fup-1gb-14-hari-1881961')"> 
+       <div class="box-produk">
+ 
+        <h4>Smartfren Unlimited FUP 1Gb 14 hari</h4>
+
+        <button>Rp43.999</button>
+       </div>
+      </a>
+      <a onclick="kirimData('https://revolt.webtoko.net/produk/smart-unlimited-fup-500mb-28-hari-1881963')"> 
+       <div class="box-produk">
+ 
+        <h4>Smartfren Unlimited FUP 500Mb 28 hari</h4>
+        <button>Rp62.150</button>
+       </div>
+      </a>
+      <a onclick="kirimData('https://revolt.webtoko.net/produk/smart-unlimited-fup-700mb-28-hari-1881964')"> 
+       <div class="box-produk">
+ 
+        <h4>Smartfren Unlimited FUP 700Mb 28 hari</h4>
+        <button>Rp62.245</button>
+       </div>
+      </a>
+      <a onclick="kirimData('https://revolt.webtoko.net/produk/smart-unlimited-fup-2gb-28-hari-1881966')"> 
+       <div class="box-produk">
+ 
+        <h4>Smartfren Unlimited FUP 2GB 28 hari</h4>
+        <button>Rp77.400</button>
+       </div>
+      </a>
+      <a onclick="kirimData('https://revolt.webtoko.net/produk/xl-xtra-on-1gb-1884428')"> 
+       <div class="box-produk">
+ 
+        <h4>XL Xtra On 1GB 60 Hari</h4>
+        <button>Rp96.200</button>
+       </div>
+      </a>
+    </div>
+    </section>
+
+  <!-- GAS NEGARA -->
+  <section id="menu-4" class="tabcontent">
+      <div class="container"> 
+      <a onclick="kirimData('https://revolt.webtoko.net/produk/smartfren-kuota-nonstop-rp30-000-1884388')"> 
+       <div class="box-produk">
+ 
+        <h4>Smartfren Kuota Nonstop 6gb</h4>
+        <p>6 GB 24 jam Nonstop, Kecepatan setelah kuota habis 256Kbps aktif selama 28 hari</p>
+        <button>Rp28.250</button>
+       </div>
+      </a>
+      <a onclick="kirimData('https://revolt.webtoko.net/produk/smartfren-kuota-nonstop-rp45-000-1884390')"> 
+       <div class="box-produk">
+ 
+        <h4>Smartfren Kuota Nonstop 10gb</h4>
+        <p>10 GB 24 jam Nonstop, Tambahan 4 GB (1 GB setiap minggu), Kecepatan setelah kuota habis 256Kbps aktif selama 28 hari</p>
+        <button>Rp43.500</button>
+       </div>
+      </a>
+      <a onclick="kirimData('https://revolt.webtoko.net/produk/smartfren-kuota-nonstop-rp65-000-1884391')"> 
+       <div class="box-produk">
+ 
+        <h4>Smartfren Kuota Nonstop 18gb</h4>
+        <p>18 GB 24 jam Nonstop, Tambahan 8 GB (2 GB setiap minggu), Kecepatan setelah kuota habis 256Kbps aktif selama 28 hari</p>
+        <button>Rp61.300</button>
+       </div>
+      </a>
+      <a onclick="kirimData('https://revolt.webtoko.net/produk/smartfren-kuota-nonstop-rp100-000-1884392')"> 
+       <div class="box-produk">
+ 
+        <h4>Smartfren Kuota Nonstop 18gb</h4>
+        <p>30 GB 24 jam Nonstop, Tambahan 8 GB (2 GB setiap minggu), Kecepatan setelah kuota habis 256Kbps aktif selama 28 hari</p>
+        <button>Rp95.300</button>
+       </div>
+      </a>
+    </div>
+    </section>
+
+  <!-- BPJS -->
+  <section id="menu-5" class="tabcontent">
+      <div class="container">
+      <a onclick="kirimData('https://revolt.bukaolshop.site/produk/indosat-freedom-u-1-gb-4-5-gb-apps-30-hari-1896791')"> 
+       <div class="box-produk">
+ 
+        <h4>1 GB + 4.5 GB Apps / 30 Hari</h4>
+        <h3></h3>
+        <button>Rp30.700</button>
+       </div>
+      </a>
+      <a onclick="kirimData('https://revolt.bukaolshop.site/produk/indosat-freedom-u-2-gb-8-gb-apps-30-hari-1896793')"> 
+       <div class="box-produk">
+ 
+        <h4>2 GB + 8 GB Apps / 30 Hari</h4>
+        <button>Rp50.570</button>
+       </div>
+      </a>
+      <a onclick="kirimData('https://revolt.bukaolshop.site/produk/indosat-freedom-u-3-gb-17-gb-apps-30-hari-1896794')"> 
+       <div class="box-produk">
+ 
+        <h4>3 GB + 17 GB Apps / 30 Hari</h4>
+        <button>Rp69.670</button>
+       </div>
+      </a>
+      <a onclick="kirimData('https://revolt.bukaolshop.site/produk/indosat-freedom-u-7-gb-28-gb-apps-30-hari-1896795')"> 
+       <div class="box-produk">
+ 
+        <h4>7 GB + 28 GB Apps / 30 Hari</h4>
+        <button>Rp90.070</button>
+       </div>
+      </a>
+      <a onclick="kirimData('https://revolt.bukaolshop.site/produk/indosat-freedom-u-10-gb-35-gb-apps-30-hari-1896796')"> 
+       <div class="box-produk">
+ 
+        <h4>10 GB + 35 GB Apps / 30 Hari</h4>
+        <button>Rp102.175</button>
+       </div>
+      </a>
+      <a onclick="kirimData('https://revolt.bukaolshop.site/produk/indosat-freedom-u-jumbo-30-hari-1896797')"> 
+       <div class="box-produk">
+ 
+        <h4>60 GB + SMS & Telp / 30hari</h4>
+        <button>Rp151.965</button>
+       </div>
+      </a>
+    </div>
+    </section>
+      <!-- BPJS -->
+  <section id="menu-6" class="tabcontent">
+      <div class="container">
+      <a onclick="kirimData('https://revolt.webtoko.net/produk/three-rp5-000-1880400')"> 
+       <div class="box-produk">
+ 
+        <h4>Segera Hadir</h4>
+        <button>Gangguan</button>
+       </div>
+      </a>
+    </section>
+<br>
+<script>
+    function openPage(pageName,elmnt,color) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablink");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].style.backgroundColor = "";
+      }
+      document.getElementById(pageName).style.display = "block";
+      elmnt.style.backgroundColor = white;
+    }
+    
+    // Get the element with id="defaultOpen" and click on it
+    document.getElementById("defaultOpen").click();
+    </script>
+
+<script type="text/javascript"> function contoh() { swal({ title: "Denom 5", text: "Masa Akses Berlaku Sesuai Zona : (Sumatra,Jawa & Balinusa 6Jam) (Kalimantan & Sulawesi 4Jam) (Maluku & Papua 2Jam)", icon: "info", button: true }); } </script> 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> 

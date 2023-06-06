@@ -1,0 +1,1 @@
+echo "# Squizness.github.io"
